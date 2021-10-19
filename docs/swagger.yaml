@@ -1,0 +1,19 @@
+info:
+  contact: {}
+paths:
+  /kubernetes/image/getAllImageList:
+    get:
+      consumes:
+      - application/json
+      description: from the kubernetes get all images
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"success":true,"data":{},"msg":"success"}'
+          schema:
+            type: string
+      summary: getAllImage
+      tags:
+      - Kubernetes
+swagger: "2.0"
