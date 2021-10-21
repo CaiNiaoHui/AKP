@@ -7,7 +7,7 @@ import (
 	"github.com/gin-gonic/gin"
 	"go.uber.org/zap"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
-	"time"
+
 )
 
 type ImageApi struct {
@@ -32,8 +32,7 @@ func (j *ImageApi) GetAllImageList(c *gin.Context) {
 	}
 
 	// -- 从这里开始使用协程   已经拿到数组 nsList.Items
-	// 0. 计时
-	start := time.Now()
+	// 1.
 
 	var ImageArr []string
 	for i := 0; i < len(nsList.Items); i++ {
@@ -63,5 +62,4 @@ func (j *ImageApi) GetAllImageList(c *gin.Context) {
 	response.Success(c, gin.H{"eachImageArr": ImageArr}, "success")
 	fmt.Println(ImageArr)
 
-	fmt.Println(time.Since(start))
 }
